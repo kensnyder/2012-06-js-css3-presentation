@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>10 Transform like a Card</title>
+	<link rel="stylesheet" href="assets/base.css" type="text/css" />
+	<script src="assets/jquery.js" type="text/javascript"></script>
+	<script src="assets/jquery.css3.js" type="text/javascript"></script>
+	<script src="assets/setup.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="tweet1" class="tweet card">
+		<div class="side front">
+			<img src="assets/conan.jpg" />
+			@ConanOBrien This morning I thought I heard a neighbor blasting that new @Skrillex song I like, but then I realized it was just the garbage truck.
+		</div>
+		<div class="side back">
+			About this tweet
+		</div>
+	</div>
+	
+	<script>
+		$('body').css3('perspective', '500px');
+		$('.card').css3('transform-style', 'preserve-3d');
+		$('.card').css3('transition', 'all 1.5s ease-in-out');		
+		$('.side').css3('backface-visibility', 'hidden');
+		$('.side').css3('position', 'absolute');
+		$('.back').css3('transform', 'rotateY(180deg)');
+	</script>
+	
+	<div id="controls">
+		.body {
+		<div class="css-body">
+			<label>perspective: 500px;</label>
+		</div>
+		}
+		<br />
+		.card {
+		<div class="css-body">
+			<label>transform-style: preserve-3d;</label>
+			<br />
+			<label>transition: all .5s ease-in-out;</label>
+		</div>
+		}
+		<br />
+		.side {
+		<div class="css-body">
+			<label>backface-visibility: hidden;</label>
+			<br />
+			<label>position: absolute;</label>
+		</div>
+		}
+		<br />
+		.back {
+		<div class="css-body">
+			<label>transform: rotateY(180deg);</label>
+		</div>
+		}
+		<br />	
+		<label onclick="$('.card').css3('transform', 'rotateY(0)');">
+			<input type="radio" name="rotate" checked="checked" />
+			$('.card').css3('transform', 'rotateY(0)');
+		</label>		
+		<br />
+		<label onclick="$('.card').css3('transform', 'rotateY(180deg)');">
+			<input type="radio" name="rotate" />
+			$('.card').css3('transform', 'rotateY(180deg)');
+		</label>
+	</div>
+	
+</body>
+</html>

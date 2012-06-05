@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>03 Transform with CSS Classes</title>
+	<link rel="stylesheet" href="assets/base.css" type="text/css" />
+	<script src="assets/jquery.js" type="text/javascript"></script>
+	<script src="assets/jquery.css3.js" type="text/javascript"></script>
+	<script src="assets/setup.js" type="text/javascript"></script>
+	<style>
+		.tweet {
+			-webkit-transition: all 1.5s ease-in-out;
+			-moz-transition: all 1.5s ease-in-out;
+			-ms-transition: all 1.5s ease-in-out;
+			-o-transition: all 1.5s ease-in-out;
+			transition: all 1.5s ease-in-out;
+		}
+		.origin-center {
+			-webkit-transform-origin: 50% 50%;
+			-moz-transform-origin: 50% 50%;
+			-ms-transform-origin: 50% 50%;
+			-o-transform-origin: 50% 50%;
+			transform-origin: 50% 50%;
+		}
+		.origin-top-left {
+			-webkit-transform-origin: 0 0;
+			-moz-transform-origin: 0 0;
+			-ms-transform-origin: 0 0;
+			-o-transform-origin: 0 0;
+			transform-origin: 0 0;			
+		}
+		.scale-normal {
+			-webkit-transform: scale(1.0);
+			-moz-transform: scale(1.0);
+			-ms-transform: scale(1.0);
+			-o-transform: scale(1.0);
+			transform: scale(1.0);
+		}
+		.scale-big {
+			-webkit-transform: scale(2.0);
+			-moz-transform: scale(2.0);
+			-ms-transform: scale(2.0);
+			-o-transform: scale(2.0);
+			transform: scale(2.0);
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="tweet1" class="tweet origin-center scale-normal">
+		<img src="assets/conan.jpg" />
+		@ConanOBrien This morning I thought I heard a neighbor blasting that new @Skrillex song I like, but then I realized it was just the garbage truck.
+	</div>
+	
+	<div id="controls">
+		<label onclick="$('#tweet1').removeClass('scale-big').addClass('scale-normal')">
+			<input type="radio" name="transform" checked="checked" />
+			$('#tweet1').removeClass('scale-big').addClass('scale-normal');
+		</label>
+		<br />		
+		<label onclick="$('#tweet1').removeClass('scale-normal').addClass('scale-big')">
+			<input type="radio" name="transform" />
+			$('#tweet1').removeClass('scale-normal').addClass('scale-big');
+		</label>
+		<br />		
+		<label onclick="$('#tweet1').removeClass('origin-top-left').addClass('origin-center')">
+			<input type="radio" name="origin" checked="checked" />
+			$('#tweet1').removeClass('origin-top-left').addClass('origin-center');
+		</label>		
+		<br />
+		<label onclick="$('#tweet1').removeClass('origin-center').addClass('origin-top-left')">
+			<input type="radio" name="origin" />
+			$('#tweet1').removeClass('origin-center').addClass('origin-top-left');
+		</label>
+	</div>
+	
+</body>
+</html>

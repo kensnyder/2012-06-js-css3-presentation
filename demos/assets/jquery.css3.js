@@ -1,7 +1,11 @@
+/**
+ * simplified jQuery plugin to set a css3 property by name
+ */
 (function($) {
 	
 	"use strict";
 	
+	// some utility functions
 	function camelize(s) {
 		return s.replace(/-([a-z])/g, function($0, $1) {
 			return $1.toUpperCase();
@@ -13,37 +17,40 @@
 	}
 	
 	$.fn.css3 = function(prop, value) {
-		var capitalizedProp, prefixes, name, i, prefixed;
+		var capitalizedProp, prefixes, i, prefixed;
 		
-		if (this.length == 0) {
-			return this;
-		}
-		
-		if (typeof prop != 'string') {
-			for (name in prop) {
-				this.css3(name, prop[name]);
-			}
-			return this;
-		}
-		
+		// TODO: here you would just want to return this
+		//   if this.length == 0
+		// TODO: here you would want to return the property value 
+		//   if arguments.length == 1
+		// TODO: here you would want to accept an object
+		//   with property-value pairs
+				
+		// JavaScript's HTMLElement#style object uses camel case
+		//   instead of CSS's dashes
+		//   so "transform-origin" will become transformOrigin
 		prop = camelize(prop);
+		
+		// Test if this property is "in" HTMLElement#style
+		// It can be any element, even a dynamically created div
+		// TODO: here you would want to cache this testing
 		if (prop in this[0].style) {
-			// browser recognizes this property without a prefix
-			this.css(prop, value);
+			// Browser recognizes this property without a prefix
+			// value might be undefined, but it is "in" style
+			return this.css(prop, value);
 		}
-		else {
-			capitalizedProp = capitalize(prop);
-			prefixes = ['MS', 'O', 'Moz', 'Webkit'];
-			i = prefixes.length;
-			while (i--) {
-				prefixed = prefixes[i] + capitalizedProp;
-				if (prefixed in this[0].style) {
-					// browser recognizes this property with this prefix
-					this.css(prefixed, value);
-					break;
-				}
+		// Check all the browser prefixes
+		capitalizedProp = capitalize(prop);
+		prefixes = ['Webkit', 'Moz', 'O', 'MS'];
+		for (i = 0; i < prefixes.length; i++) {
+			prefixed = prefixes[i] + capitalizedProp;
+			if (prefixed in this[0].style) {
+				// Browser recognizes this property 
+				//   with this prefix
+				return this.css(prefixed, value);
 			}
 		}
+		// Browser doesn't support this at all
 		return this;
 	}
 	
