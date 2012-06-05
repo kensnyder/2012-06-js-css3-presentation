@@ -9,9 +9,11 @@ body {
 	padding: 15px;
 	width: 500px;
 	min-height: 128px;
-	margin: 15px;
 	text-shadow: 1px 1px 1px #FFFFFF;
 	color: rgba(0, 0, 0, 0.80);
+	position: absolute;
+	top: 200px;
+	left: 200px;	
 }
 .tweet img {
 	float: left;
@@ -19,11 +21,13 @@ body {
 }
 #controls {
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 15px;
+	right: 15px;
 	padding: 15px;
-	margin: 0 15px 0 0;
 	border: 1px solid #ccc;
 	background: rgba(255,255,255,0.75);
 	font: 16px/135% Monaco, "Bitstream Vera Sans Mono", Consolas, monospace;
+}
+.css-body {
+	margin-left: 3em;
 }

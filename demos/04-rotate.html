@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>04 Transform with Rotation</title>
+	<link rel="stylesheet" href="assets/base.css" type="text/css" />
+	<script src="assets/jquery.js" type="text/javascript"></script>
+	<script src="assets/jquery.css3.js" type="text/javascript"></script>
+	<script src="assets/setup.js" type="text/javascript"></script>
+</head>
+<body>
+	
+	<div id="tweet1" class="tweet">
+		<img src="assets/conan.jpg" />
+		@ConanOBrien This morning I thought I heard a neighbor blasting that new @Skrillex song I like, but then I realized it was just the garbage truck.
+	</div>
+	
+	<script>
+		$('#tweet1').css3('transform-origin', '50% 50%');
+		$('#tweet1').css3('transition', 'all 1.5s ease-in-out');
+	</script>
+	
+	<div id="controls">
+		#tweet1 {
+		<div class="css-body">
+			<label>transform-origin: 50% 50%;</label>
+			<br />
+			<label>transition: all 1.5s ease-in-out;</label>
+			<br />	
+			<label onclick="$('#tweet1').css3('transform', 'rotate(0deg)')">
+				<input type="radio" name="rotate" checked="checked" />
+				transform: rotate(0deg);
+			</label>		
+			<br />
+			<label onclick="$('#tweet1').css3('transform', 'rotate(45deg)')">
+				<input type="radio" name="rotate" />
+				transform: rotate(45deg);
+			</label>
+			<br />
+			<label onclick="$('#tweet1').css3('transform', 'rotate(90deg)')">
+				<input type="radio" name="rotate" />
+				transform: rotate(90deg);
+			</label>
+			<br />
+			<label onclick="$('#tweet1').css3('transform', 'rotate(180deg)')">
+				<input type="radio" name="rotate" />
+				transform: rotate(180deg);
+			</label>
+			<br />
+			<label onclick="$('#tweet1').css3('transform', 'rotate(360deg)')">
+				<input type="radio" name="rotate" />
+				transform: rotate(360deg);
+			</label>
+			<br />
+			<label onclick="$('#tweet1').css3('transform', 'rotate(720deg)')">
+				<input type="radio" name="rotate" />
+				transform: rotate(720deg);
+			</label>
+		</div>
+		}
+	</div>
+	
+</body>
+</html>
