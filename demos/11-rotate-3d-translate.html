@@ -14,15 +14,15 @@
 	</div>
 	
 	<script>
-		$('body').css3('perspective', '500px');
+		$('body').css3('perspective', '1000px');
 		$('#tweet1').css3('transform-origin', '50% 50%');
-		$('#tweet1').css3('transition', 'all .5s ease-in-out');
+		$('#tweet1').css3('transition', 'all .67s ease-in-out');
 	</script>
 	
 	<div id="controls">
 		.body {
 		<div class="css-body">
-			<label>perspective: 500px;</label>
+			<label>perspective: 1000px;</label>
 		</div>
 		}
 		<br />
@@ -30,7 +30,7 @@
 		<div class="css-body">
 			<label>transform-origin: 50% 50%;</label>
 			<br />
-			<label>transition: all .5s ease-in-out;</label>
+			<label>transition: all .67s ease-in-out;</label>
 			<br />	
 			<label onclick="$('#tweet1').css3('transform', 'rotateY(0deg) translateZ(0)')">
 				<input type="radio" name="rotate" checked="checked" />
@@ -50,5 +50,22 @@
 		}
 	</div>
 	
+	<div id="nav">
+		Select example:
+		<select>
+			<option value="01-transform.html">01 Transform</option>
+			<option value="02-transform-transition.html">02 Transform with Transition</option>
+			<option value="03-css-classes.html">03 Transform with CSS Classes</option>
+			<option value="04-nth-child.html">04 Transform with :nth-child</option>
+			<option value="05-background-color.html">05 Transform with Background Color</option>
+			<option value="06-opacity.html">06 Transform with Opacity</option>
+			<option value="07-rotate.html">07 Transform with Rotation</option>
+			<option value="08-transitionend.html">08 Transform with Rotation and transitionend Event</option>
+			<option value="09-rotate-3d.html">09 Transform with 3D Rotation</option>
+			<option value="10-rotate-card.html">10 Transform like a Card</option>
+			<option value="11-rotate-3d-translate.html" selected="selected">11 Transform with 3D Rotation and Z Translation</option>
+		</select>
+	</div>
+			
 </body>
 </html>

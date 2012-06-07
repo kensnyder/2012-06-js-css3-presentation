@@ -45,3 +45,12 @@ body {
 .css-body {
 	margin-left: 3em;
 }
+#nav {
+	font-size: 11px;
+	position: absolute;
+	top: 10px;
+	left: 15px;
+}
+#nav select {
+	font-size: 11px;
+}
