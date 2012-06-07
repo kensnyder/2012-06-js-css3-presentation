@@ -9,3 +9,4 @@ Then check out some other examples:
 * [Rotating rings](http://www.webkit.org/blog-files/3d-transforms/poster-circle.html)
 * [Morphing cube](http://www.webkit.org/blog-files/3d-transforms/morphing-cubes.html)
 * [Chrome's new filter: drop-shadow](http://dabblet.com/gist/2878485)
+* [Isotope library](http://isotope.metafizzy.co/)
