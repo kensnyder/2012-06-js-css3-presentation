@@ -5,13 +5,16 @@
 	
 	"use strict";
 	
-	// some utility functions
+	// Used to convert dashed css properties to camelCase
+	// e.g. `transform-origin` becomes `transformOrigin`
 	function camelize(s) {
 		return s.replace(/-([a-z])/g, function($0, $1) {
 			return $1.toUpperCase();
 		});
 	}
 	
+	// Used to capitalize camelCase properties
+	//   so we can prepend a browser prefix (e.g. Webkit)
 	function capitalize(s) {
 		return s.charAt(0).toUpperCase() + s.slice(1);
 	}
@@ -28,21 +31,23 @@
 				
 		// JavaScript's HTMLElement#style object uses camel case
 		//   instead of CSS's dashes
-		//   so "transform-origin" will become transformOrigin
+		//   so `transform-origin` needs to be `transformOrigin`
 		prop = camelize(prop);
 		
-		// Test if this property is "in" HTMLElement#style
-		// It can be any element, even a dynamically created div
+		// Test if this css property is "in" HTMLElement#style
+		// We can test any element, even a dynamically created div
 		// TODO: here you would want to cache this testing
 		if (prop in this[0].style) {
 			// Browser recognizes this property without a prefix
-			// value might be undefined, but it is "in" style
+			// Value might be undefined, but it is "in" style
 			return this.css(prop, value);
 		}
 		// Check all the browser prefixes
 		capitalizedProp = capitalize(prop);
 		prefixes = ['Webkit', 'Moz', 'O', 'MS'];
 		for (i = 0; i < prefixes.length; i++) {
+			// Capitalize and add prefix so
+			// e.g. `transformOrigin` becomes `MozTransformOrigin`
 			prefixed = prefixes[i] + capitalizedProp;
 			if (prefixed in this[0].style) {
 				// Browser recognizes this property 
@@ -50,7 +55,7 @@
 				return this.css(prefixed, value);
 			}
 		}
-		// Browser doesn't support this at all
+		// Browser doesn't support this property at all
 		return this;
 	}
 	

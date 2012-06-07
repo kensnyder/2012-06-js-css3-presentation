@@ -17,6 +17,8 @@
 	<div id="controls">
 		#tweet1 {
 		<div class="css-body">
+			<!-- FOR SIMPLICITY, WE REPEATEDLY REQUERY `$('#tweet')` 
+				 YOU SHOULD NEVER DO THAT IN PRODUCTION -->
 			<label onclick="$('#tweet1').css3('transform', 'scale(1)')">
 				<input type="radio" name="transform" checked="checked" />
 				transform: scale(1);
@@ -40,6 +42,22 @@
 		}
 	</div>
 	
+	<div id="nav">
+		Select example:</br>
+		<select>
+			<option value="01-transform.html" selected="selected">01 Transform</option>
+			<option value="02-transform-transition.html">02 Transform with Transition</option>
+			<option value="03-css-classes.html">03 Transform with CSS Classes</option>
+			<option value="04-nth-child.html">04 Transform with :nth-child</option>
+			<option value="05-background-color.html">05 Transform with Background Color</option>
+			<option value="06-opacity.html">06 Transform with Opacity</option>
+			<option value="07-rotate.html">07 Transform with Rotation</option>
+			<option value="08-transitionend.html">08 Transform with Rotation and transitionend Event</option>
+			<option value="09-rotate-3d.html">09 Transform with 3D Rotation</option>
+			<option value="10-rotate-card.html">10 Transform like a Card</option>
+			<option value="11-rotate-3d-translate.html">11 Transform with 3D Rotation and Z Translation</option>
+		</select>
+	</div>
 	
 </body>
 </html>
